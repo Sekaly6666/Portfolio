@@ -18,3 +18,9 @@ id = "uo0an-UJu4p77svKFlwEp"
 uri = "file://artifacts/portfolio/public/images/project-3.png"
 type = "image"
 title = "Architectural blueprints on desk"
+
+[[generated]]
+id = "L0P1Mwcyiiz7hiIREXYLh"
+uri = "file://attached_assets/generated_images/professional_african_civil_engineer_7c97.png"
+type = "image"
+title = "generated_image"
