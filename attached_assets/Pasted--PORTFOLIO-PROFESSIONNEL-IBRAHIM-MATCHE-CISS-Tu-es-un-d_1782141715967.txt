@@ -1,0 +1,342 @@
+# PORTFOLIO PROFESSIONNEL - IBRAHIM MATCHE CISSÉ
+
+Tu es un développeur Full Stack Senior expert en Next.js 15, TypeScript, Tailwind CSS, Framer Motion, GSAP, MongoDB et Cloudinary.
+
+Crée un portfolio professionnel haut de gamme pour :
+
+IBRAHIM MATCHE CISSÉ
+
+Technicien Supérieur en Génie Civil
+Option : Bâtiment
+
+L'objectif est de créer un portfolio moderne, élégant et impressionnant destiné aux :
+
+* Entreprises BTP
+* Cabinets d'architecture
+* Bureaux d'études
+* Promoteurs immobiliers
+* Investisseurs
+* Recruteurs
+* Clients particuliers
+
+Le site doit être extrêmement fluide, moderne, responsive et riche en animations.
+
+---
+
+# STACK TECHNIQUE
+
+Frontend :
+
+* Next.js 15
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* GSAP
+* Shadcn UI
+
+Backend :
+
+* Node.js
+* MongoDB
+* Mongoose
+
+Stockage :
+
+* Cloudinary
+
+Déploiement :
+
+* Vercel
+
+---
+
+# DESIGN
+
+Style :
+
+* Premium
+* Professionnel
+* Moderne
+* Inspiré des grandes entreprises de construction
+
+Palette :
+
+Bleu Ingénieur : #1E40AF
+Orange Chantier : #F97316
+Gris Béton : #6B7280
+Blanc : #FFFFFF
+Noir Technique : #111827
+
+---
+
+# PAGE D'ACCUEIL
+
+Créer une Hero Section spectaculaire contenant :
+
+* Photo professionnelle
+* Nom complet
+* Titre professionnel
+* Animation de texte
+* Bouton Voir mes projets
+* Bouton Télécharger CV
+
+Arrière-plan :
+
+* Vidéo de chantier
+  ou
+* Animation 3D de bâtiment
+
+Effets :
+
+* Parallax
+* Fade In
+* Scroll Reveal
+* Motion Effects
+
+---
+
+# SECTION À PROPOS
+
+Présenter :
+
+* Biographie
+* Parcours professionnel
+* Vision du métier
+* Valeurs professionnelles
+
+Ajouter :
+
+* Date de naissance
+* Localisation
+* Permis de conduire
+
+Présentation sous forme de cartes modernes animées.
+
+---
+
+# SECTION COMPÉTENCES
+
+Afficher sous forme de graphiques animés :
+
+Logiciels :
+
+* AutoCAD
+* Revit
+* Microsoft Word
+
+Compétences :
+
+* Métré
+* Suivi de chantier
+* Contrôle qualité
+* Lecture de plans
+* Fondation
+* Construction de bâtiments
+* Gestion de projet
+
+Soft Skills :
+
+* Travail en équipe
+* Ouverture d'esprit
+* Travail sous pression
+* Ponctualité
+
+---
+
+# SECTION EXPÉRIENCES
+
+Créer une Timeline Interactive.
+
+Expérience 1 :
+
+Métreur
+YAPGI CONSTRUCTION
+
+Missions :
+
+* Métré
+* Quantification
+* Analyse des coûts
+
+Expérience 2 :
+
+HOUSE CARE INTERNATIONAL
+
+Missions :
+
+* Suivi de chantier
+* Contrôle qualité
+* Contrôle des travaux
+
+Projet réalisé :
+
+* Contrôle de la fondation de trois villas duplex
+* Contrôle d'un immeuble R+3 à Songon
+
+---
+
+# SECTION PROJETS
+
+C'est la partie la plus importante.
+
+L'utilisateur doit pouvoir :
+
+* Ajouter un nouveau projet
+* Modifier un projet
+* Supprimer un projet
+
+Chaque projet contient :
+
+* Nom du projet
+* Description
+* Type de bâtiment
+* Surface
+* Budget
+* Localisation
+* Date
+* Statut
+
+---
+
+# GALERIE PROJETS
+
+Chaque projet peut contenir :
+
+* Images illimitées
+* Vidéos illimitées
+* Documents PDF
+* Plans AutoCAD
+* Plans PDF
+* Plans Revit
+
+Formats acceptés :
+
+* JPG
+* PNG
+* WEBP
+* MP4
+* PDF
+* DWG
+
+---
+
+# PLAN DE CONSTRUCTION
+
+Créer un espace spécial :
+
+"Bibliothèque de Plans"
+
+L'utilisateur peut :
+
+* Ajouter un plan
+* Modifier un plan
+* Supprimer un plan
+
+Catégories :
+
+* Villas
+* Duplex
+* Immeubles
+* Bâtiments commerciaux
+* Écoles
+* Hôpitaux
+
+Chaque plan contient :
+
+* Image de prévisualisation
+* PDF téléchargeable
+* Description technique
+* Surface
+* Nombre de pièces
+
+---
+
+# MÉDIATHÈQUE
+
+Créer une galerie moderne :
+
+* Photos chantier
+* Photos avant/après
+* Vidéos drone
+* Vidéos de progression
+* Vidéos de présentation
+
+Animations :
+
+* Lightbox
+* Zoom
+* Carousel
+
+---
+
+# CERTIFICATIONS
+
+Afficher :
+
+* BTS Génie Civil
+* Attestation Stratégie Marketing
+
+---
+
+# STATISTIQUES
+
+Compteurs animés :
+
+* Projets réalisés
+* Chantiers suivis
+* Années d'expérience
+* Plans réalisés
+
+---
+
+# BLOG TECHNIQUE
+
+Créer un espace où l'utilisateur peut publier :
+
+* Conseils construction
+* Astuces chantier
+* Techniques bâtiment
+* Études de cas
+
+CRUD complet.
+
+---
+
+# PAGE CONTACT
+
+Contient :
+
+* Formulaire de contact
+* Téléphone
+* Email
+* WhatsApp
+* Carte Google Maps
+
+---
+
+# DASHBOARD PERSONNEL
+
+Le propriétaire du portfolio peut :
+
+* Ajouter des projets
+* Ajouter des images
+* Ajouter des vidéos
+* Ajouter des plans
+* Ajouter des articles
+* Modifier tout le contenu
+* Supprimer tout le contenu
+
+---
+
+# SEO
+
+* Sitemap
+* Meta Tags
+* Open Graph
+* Optimisation Google
+
+---
+
+# OBJECTIF FINAL
+
+Créer un portfolio exceptionnel qui présente Ibrahim Matche Cissé comme un professionnel du génie civil capable de gérer des projets de construction, de présenter ses réalisations, ses plans, ses vidéos de chantier et l'ensemble de son expertise de manière moderne et professionnelle.

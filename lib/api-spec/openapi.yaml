@@ -1,22 +1,33 @@
 openapi: 3.1.0
 info:
-  # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: Portfolio Ibrahim Matche Cissé - API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: projects
+    description: Construction projects
+  - name: plans
+    description: Plans library
+  - name: blog
+    description: Technical blog
+  - name: contact
+    description: Contact messages
+  - name: stats
+    description: Portfolio statistics
+  - name: media
+    description: Media gallery
+
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,6 +35,418 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /projects:
+    get:
+      operationId: listProjects
+      tags: [projects]
+      summary: List all projects
+      parameters:
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Project"
+    post:
+      operationId: createProject
+      tags: [projects]
+      summary: Create a project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+
+  /projects/{id}:
+    get:
+      operationId: getProject
+      tags: [projects]
+      summary: Get a project by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Project
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+        "404":
+          description: Not found
+    patch:
+      operationId: updateProject
+      tags: [projects]
+      summary: Update a project
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectUpdate"
+      responses:
+        "200":
+          description: Updated project
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+    delete:
+      operationId: deleteProject
+      tags: [projects]
+      summary: Delete a project
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /projects/stats/summary:
+    get:
+      operationId: getProjectStats
+      tags: [projects]
+      summary: Get project statistics summary
+      responses:
+        "200":
+          description: Project stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProjectStats"
+
+  /plans:
+    get:
+      operationId: listPlans
+      tags: [plans]
+      summary: List all plans
+      parameters:
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of plans
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Plan"
+    post:
+      operationId: createPlan
+      tags: [plans]
+      summary: Create a plan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlanInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Plan"
+
+  /plans/{id}:
+    get:
+      operationId: getPlan
+      tags: [plans]
+      summary: Get a plan by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Plan
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Plan"
+        "404":
+          description: Not found
+    patch:
+      operationId: updatePlan
+      tags: [plans]
+      summary: Update a plan
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlanUpdate"
+      responses:
+        "200":
+          description: Updated plan
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Plan"
+    delete:
+      operationId: deletePlan
+      tags: [plans]
+      summary: Delete a plan
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /blog:
+    get:
+      operationId: listPosts
+      tags: [blog]
+      summary: List blog posts
+      parameters:
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: published
+          in: query
+          required: false
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: List of blog posts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Post"
+    post:
+      operationId: createPost
+      tags: [blog]
+      summary: Create a blog post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+
+  /blog/{id}:
+    get:
+      operationId: getPost
+      tags: [blog]
+      summary: Get a blog post by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Blog post
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+        "404":
+          description: Not found
+    patch:
+      operationId: updatePost
+      tags: [blog]
+      summary: Update a blog post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostUpdate"
+      responses:
+        "200":
+          description: Updated post
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+    delete:
+      operationId: deletePost
+      tags: [blog]
+      summary: Delete a blog post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /contact:
+    get:
+      operationId: listMessages
+      tags: [contact]
+      summary: List contact messages (admin)
+      responses:
+        "200":
+          description: List of messages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ContactMessage"
+    post:
+      operationId: sendMessage
+      tags: [contact]
+      summary: Send a contact message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactInput"
+      responses:
+        "201":
+          description: Message sent
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactMessage"
+
+  /stats:
+    get:
+      operationId: getStats
+      tags: [stats]
+      summary: Get portfolio statistics
+      responses:
+        "200":
+          description: Statistics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PortfolioStats"
+
+  /media:
+    get:
+      operationId: listMedia
+      tags: [media]
+      summary: List all media items
+      parameters:
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: projectId
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of media
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MediaItem"
+    post:
+      operationId: createMedia
+      tags: [media]
+      summary: Add a media item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MediaInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MediaItem"
+
+  /media/{id}:
+    delete:
+      operationId: deleteMedia
+      tags: [media]
+      summary: Delete a media item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +457,294 @@ components:
       required:
         - status
 
+    Project:
+      type: object
+      required: [id, name, description, type, status, createdAt]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        surface:
+          type: ["string", "null"]
+        budget:
+          type: ["string", "null"]
+        location:
+          type: ["string", "null"]
+        date:
+          type: ["string", "null"]
+        status:
+          type: string
+        coverImage:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    ProjectInput:
+      type: object
+      required: [name, description, type, status]
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        surface:
+          type: string
+        budget:
+          type: string
+        location:
+          type: string
+        date:
+          type: string
+        status:
+          type: string
+        coverImage:
+          type: string
+
+    ProjectUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        surface:
+          type: string
+        budget:
+          type: string
+        location:
+          type: string
+        date:
+          type: string
+        status:
+          type: string
+        coverImage:
+          type: string
+
+    ProjectStats:
+      type: object
+      required: [total, byStatus, byType]
+      properties:
+        total:
+          type: integer
+        byStatus:
+          type: array
+          items:
+            type: object
+            required: [status, count]
+            properties:
+              status:
+                type: string
+              count:
+                type: integer
+        byType:
+          type: array
+          items:
+            type: object
+            required: [type, count]
+            properties:
+              type:
+                type: string
+              count:
+                type: integer
+
+    Plan:
+      type: object
+      required: [id, title, category, createdAt]
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        category:
+          type: string
+        description:
+          type: ["string", "null"]
+        previewImage:
+          type: ["string", "null"]
+        pdfUrl:
+          type: ["string", "null"]
+        surface:
+          type: ["string", "null"]
+        rooms:
+          type: ["integer", "null"]
+        createdAt:
+          type: string
+
+    PlanInput:
+      type: object
+      required: [title, category]
+      properties:
+        title:
+          type: string
+        category:
+          type: string
+        description:
+          type: string
+        previewImage:
+          type: string
+        pdfUrl:
+          type: string
+        surface:
+          type: string
+        rooms:
+          type: integer
+
+    PlanUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        category:
+          type: string
+        description:
+          type: string
+        previewImage:
+          type: string
+        pdfUrl:
+          type: string
+        surface:
+          type: string
+        rooms:
+          type: integer
+
+    Post:
+      type: object
+      required: [id, title, content, category, published, createdAt]
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        content:
+          type: string
+        excerpt:
+          type: ["string", "null"]
+        category:
+          type: string
+        coverImage:
+          type: ["string", "null"]
+        published:
+          type: boolean
+        createdAt:
+          type: string
+
+    PostInput:
+      type: object
+      required: [title, content, category]
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+        excerpt:
+          type: string
+        category:
+          type: string
+        coverImage:
+          type: string
+        published:
+          type: boolean
+
+    PostUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+        excerpt:
+          type: string
+        category:
+          type: string
+        coverImage:
+          type: string
+        published:
+          type: boolean
+
+    ContactMessage:
+      type: object
+      required: [id, name, email, message, createdAt]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: ["string", "null"]
+        message:
+          type: string
+        read:
+          type: boolean
+        createdAt:
+          type: string
+
+    ContactInput:
+      type: object
+      required: [name, email, message]
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        message:
+          type: string
+
+    PortfolioStats:
+      type: object
+      required: [projectsCompleted, sitesSupervised, yearsExperience, plansCreated]
+      properties:
+        projectsCompleted:
+          type: integer
+        sitesSupervised:
+          type: integer
+        yearsExperience:
+          type: integer
+        plansCreated:
+          type: integer
+
+    MediaItem:
+      type: object
+      required: [id, url, type, createdAt]
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+        type:
+          type: string
+        title:
+          type: ["string", "null"]
+        description:
+          type: ["string", "null"]
+        projectId:
+          type: ["integer", "null"]
+        createdAt:
+          type: string
+
+    MediaInput:
+      type: object
+      required: [url, type]
+      properties:
+        url:
+          type: string
+        type:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        projectId:
+          type: integer

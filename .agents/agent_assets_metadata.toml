@@ -1,0 +1,20 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "Ovk5SVcy0nyTtV4o56Y-Z"
+uri = "file://artifacts/portfolio/public/images/project-1.png"
+type = "image"
+title = "Modern villa construction"
+
+[[generated]]
+id = "_gkEv0Dy0B30f62sH8amV"
+uri = "file://artifacts/portfolio/public/images/project-2.png"
+type = "image"
+title = "High-rise commercial building"
+
+[[generated]]
+id = "uo0an-UJu4p77svKFlwEp"
+uri = "file://artifacts/portfolio/public/images/project-3.png"
+type = "image"
+title = "Architectural blueprints on desk"
