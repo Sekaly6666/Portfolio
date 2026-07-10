@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-// import { useSendMessage } from "@workspace/api-client-react"; // removed unavailable package
+import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,15 +20,9 @@ const formSchema = z.object({
 });
 
 export default function Contact() {
-// Mock sendMessage implementation (no backend)
-  const sendMessage = {
-    isPending: false,
-    mutate: (payload: any, callbacks: any) => {
-      // simulate async success
-      if (callbacks && callbacks.onSuccess) callbacks.onSuccess();
-    },
-  };
+  const { toast } = useToast();
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isPending, setIsPending] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,18 +34,34 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    sendMessage.mutate({ data: values }, {
-      onSuccess: () => {
-        setIsSuccess(true);
-        form.reset();
-        toast({ title: "Message envoyé", description: "Votre message a été envoyé avec succès." });
-        setTimeout(() => setIsSuccess(false), 5000);
-      },
-      onError: () => {
-        toast({ variant: "destructive", title: "Erreur", description: "Impossible d'envoyer le message." });
-      }
-    });
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsPending(true);
+    try {
+      // Configuration EmailJS avec vos identifiants
+      const SERVICE_ID = "service_e6e0v2e";
+      const TEMPLATE_ID = "template_gtvj4k2";
+      const PUBLIC_KEY = "a1bVYL3Zec1ezMcyj";
+
+      // Les paramètres envoyés au modèle EmailJS (doivent correspondre aux variables dans votre template)
+      const templateParams = {
+        from_name: values.name,
+        from_email: values.email,
+        phone: values.phone || "Non renseigné",
+        message: values.message,
+      };
+
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+
+      setIsSuccess(true);
+      form.reset();
+      toast({ title: "Message envoyé", description: "Votre message a été envoyé avec succès." });
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast({ variant: "destructive", title: "Erreur", description: "Impossible d'envoyer le message. Veuillez réessayer plus tard." });
+    } finally {
+      setIsPending(false);
+    }
   }
 
   return (
@@ -178,8 +188,16 @@ export default function Contact() {
                         </FormItem>
                       )}
                     />
-                    <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90" disabled={sendMessage.isPending}>
-                      {sendMessage.isPending ? "Envoi en cours..." : <><Send className="w-4 h-4 mr-2" /> Envoyer le message</>}
+                    <Button type="submit" size="lg" className="w-full gap-2 text-base h-12" disabled={isPending || isSuccess}>
+                      {isSuccess ? (
+                        <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} className="flex items-center gap-2">
+                          <CheckCircle2 className="w-5 h-5" /> Message envoyé
+                        </motion.div>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5" /> {isPending ? "Envoi en cours..." : "Envoyer le message"}
+                        </>
+                      )}
                     </Button>
                   </form>
                 </Form>
