@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useGetStats } from "@workspace/api-client-react";
-import engineerPhoto from "@assets/generated_images/professional_african_civil_engineer_7c97.png";
+const engineerPhoto = "/hero-photo.jpg";
 
 const roles = ["Métreur", "Suivi de Chantier", "Contrôle Qualité", "Technicien Supérieur", "Génie Civil"];
 
@@ -254,13 +254,16 @@ export default function Home() {
                   </Link>
                 </Button>
                 <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="h-14 px-8 text-lg border-border hover:border-accent hover:text-accent transition-all duration-300"
                   data-testid="button-telecharger-cv"
                 >
-                  <FileText className="mr-2 h-5 w-5" />
-                  Télécharger CV
+                  <Link href="/cv">
+                    <FileText className="mr-2 h-5 w-5" />
+                    Voir mon CV
+                  </Link>
                 </Button>
               </motion.div>
             </motion.div>
@@ -313,7 +316,7 @@ export default function Home() {
                       <HardHat className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-bold text-sm text-foreground">Ibrahim M. Cissé</p>
+                      <p className="font-bold text-sm text-foreground">Cissé Ibrahim Matche</p>
                       <p className="text-xs text-accent font-mono">Technicien Sup. Génie Civil</p>
                     </div>
                     <div className="ml-auto flex items-center gap-1 text-emerald-400 text-xs font-mono">

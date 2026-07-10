@@ -9,8 +9,6 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
-  const navBg = useTransform(scrollY, [0, 80], ["rgba(17,24,39,0)", "rgba(17,24,39,0.95)"]);
-  const navBorder = useTransform(scrollY, [0, 80], ["rgba(31,41,55,0)", "rgba(31,41,55,1)"]);
 
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -26,18 +24,12 @@ export function Navbar() {
     { label: "Projets", href: "/projets" },
     { label: "Plans", href: "/plans" },
     { label: "Médiathèque", href: "/mediatheque" },
-    { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ];
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md"
-      style={{
-        backgroundColor: navBg,
-        borderBottom: `1px solid`,
-        borderColor: navBorder,
-      }}
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md print:hidden transition-colors duration-300 ${scrolled ? 'bg-background/80 border-b border-border' : 'bg-transparent border-b-0'}`}
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
@@ -54,7 +46,7 @@ export function Navbar() {
               <HardHat className="text-accent h-6 w-6" />
             </motion.div>
             <span className="group-hover:text-foreground transition-colors">
-              Ibrahim<span className="text-primary">.</span>Cissé
+              Cissé Ibrahim <span className="text-primary">Matche</span>
             </span>
           </Link>
         </motion.div>
@@ -99,21 +91,6 @@ export function Navbar() {
               </Link>
             </motion.div>
           ))}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 }}
-            className="ml-3"
-          >
-            <Button
-              asChild
-              variant="default"
-              className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300"
-              data-testid="button-espace-client"
-            >
-              <Link href="/dashboard">Espace Client</Link>
-            </Button>
-          </motion.div>
         </motion.div>
 
         {/* Mobile toggle */}
@@ -168,16 +145,6 @@ export function Navbar() {
                   </Link>
                 </motion.div>
               ))}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navItems.length * 0.06 }}
-                className="pt-2"
-              >
-                <Button asChild variant="default" className="w-full bg-primary hover:bg-primary/90" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Link href="/dashboard">Espace Client</Link>
-                </Button>
-              </motion.div>
             </div>
           </motion.div>
         )}

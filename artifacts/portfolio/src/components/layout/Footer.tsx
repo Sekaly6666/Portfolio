@@ -3,13 +3,13 @@ import { Link } from "wouter";
 
 export function Footer() {
   return (
-    <footer className="bg-card border-t border-border pt-16 pb-8">
+    <footer className="bg-card border-t border-border pt-16 pb-8 print:hidden">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight mb-4">
               <HardHat className="text-accent h-6 w-6" />
-              <span>Ibrahim<span className="text-primary">.</span>Cissé</span>
+              <span>Cissé Ibrahim <span className="text-primary">Matche</span></span>
             </Link>
             <p className="text-muted-foreground text-sm">
               Technicien Supérieur en Génie Civil.
@@ -23,7 +23,7 @@ export function Footer() {
               <li><Link href="/projets" className="text-muted-foreground hover:text-accent text-sm">Projets</Link></li>
               <li><Link href="/plans" className="text-muted-foreground hover:text-accent text-sm">Plans</Link></li>
               <li><Link href="/mediatheque" className="text-muted-foreground hover:text-accent text-sm">Médiathèque</Link></li>
-              <li><Link href="/blog" className="text-muted-foreground hover:text-accent text-sm">Blog</Link></li>
+              <li><Link href="/cv" className="text-muted-foreground hover:text-accent text-sm">Mon CV</Link></li>
             </ul>
           </div>
 
@@ -36,11 +36,11 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Phone className="h-4 w-4 text-accent" />
-                +225 00 00 00 00 00
+                +225 07 77 25 31 37
               </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Mail className="h-4 w-4 text-accent" />
-                contact@ibrahimcisse.pro
+                cissei931brahim@gmail.com
               </li>
             </ul>
           </div>

@@ -9,9 +9,8 @@ import Home from "@/pages/Home";
 import Projects from "@/pages/Projects";
 import Plans from "@/pages/Plans";
 import Media from "@/pages/Media";
-import Blog from "@/pages/Blog";
 import Contact from "@/pages/Contact";
-import Dashboard from "@/pages/Dashboard";
+import Cv from "@/pages/Cv";
 
 const queryClient = new QueryClient();
 
@@ -23,9 +22,8 @@ function Router() {
         <Route path="/projets" component={Projects} />
         <Route path="/plans" component={Plans} />
         <Route path="/mediatheque" component={Media} />
-        <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/cv" component={Cv} />
         <Route component={NotFound} />
       </Switch>
     </RootLayout>

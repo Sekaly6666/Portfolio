@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useSendMessage } from "@workspace/api-client-react";
+// import { useSendMessage } from "@workspace/api-client-react"; // removed unavailable package
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,8 +20,14 @@ const formSchema = z.object({
 });
 
 export default function Contact() {
-  const { toast } = useToast();
-  const sendMessage = useSendMessage();
+// Mock sendMessage implementation (no backend)
+  const sendMessage = {
+    isPending: false,
+    mutate: (payload: any, callbacks: any) => {
+      // simulate async success
+      if (callbacks && callbacks.onSuccess) callbacks.onSuccess();
+    },
+  };
   const [isSuccess, setIsSuccess] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -78,7 +84,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Téléphone & WhatsApp</h3>
-                  <p className="text-muted-foreground text-sm">+225 00 00 00 00 00</p>
+                  <p className="text-muted-foreground text-sm">+225 07 77 25 31 37</p>
                 </div>
               </div>
 
@@ -88,7 +94,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
-                  <p className="text-muted-foreground text-sm">contact@ibrahimcisse.pro</p>
+                  <p className="text-muted-foreground text-sm">cissei931brahim@gmail.com</p>
                 </div>
               </div>
             </CardContent>
@@ -122,7 +128,7 @@ export default function Contact() {
                           <FormItem>
                             <FormLabel>Nom complet</FormLabel>
                             <FormControl>
-                              <Input placeholder="Jean Dupont" className="bg-background border-border" {...field} />
+                              <Input placeholder="Cisse Ibrahim Matche" className="bg-background border-border" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -135,7 +141,7 @@ export default function Contact() {
                           <FormItem>
                             <FormLabel>Email</FormLabel>
                             <FormControl>
-                              <Input placeholder="jean@exemple.com" className="bg-background border-border" {...field} />
+                              <Input placeholder="cisseibrahimatche@exemple.com" className="bg-background border-border" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -149,7 +155,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel>Téléphone (Optionnel)</FormLabel>
                           <FormControl>
-                            <Input placeholder="+225 00 00 00 00 00" className="bg-background border-border" {...field} />
+                            <Input placeholder="+225 07 77 25 31 37" className="bg-background border-border" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
