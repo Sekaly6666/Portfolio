@@ -230,8 +230,8 @@ export default function Home() {
               <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
                 {[
                   { icon: MapPin, text: "Abidjan, Côte d'Ivoire" },
-                  { icon: Calendar, text: "3 ans d'expérience" },
-                  { icon: HardHat, text: "Permis B" },
+                  { icon: Calendar, text: "4 ans d'expérience" },
+                  { icon: HardHat, text: "Permis A,B,C & E" },
                 ].map((item) => (
                   <span key={item.text} className="flex items-center gap-2 px-3 py-1.5 bg-card border border-border rounded-md text-sm text-muted-foreground font-mono">
                     <item.icon className="w-3.5 h-3.5 text-accent" />
@@ -404,7 +404,7 @@ export default function Home() {
                 {[
                   { dot: "bg-accent", text: "Né le 10 Septembre 2000" },
                   { dot: "bg-primary", text: "Abidjan, Côte d'Ivoire" },
-                  { dot: "bg-emerald-500", text: "Permis B" },
+                  { dot: "bg-emerald-500", text: "Permis A,B,C & E" },
                 ].map((item) => (
                   <motion.span
                     key={item.text}
@@ -686,7 +686,7 @@ export default function Home() {
             {[
               { label: "Projets Réalisés", value: stats?.projectsCompleted || 12, icon: Building, suffix: "+", color: "text-primary" },
               { label: "Chantiers Supervisés", value: stats?.sitesSupervised || 8, icon: HardHat, suffix: "+", color: "text-accent" },
-              { label: "Années d'Expérience", value: stats?.yearsExperience || 3, icon: Award, suffix: "", color: "text-primary" },
+              { label: "Années d'Expérience", value: stats?.yearsExperience || 4, icon: Award, suffix: "", color: "text-primary" },
               { label: "Plans Réalisés", value: stats?.plansCreated || 45, icon: PenTool, suffix: "+", color: "text-accent" },
             ].map((stat, i) => (
               <motion.div
