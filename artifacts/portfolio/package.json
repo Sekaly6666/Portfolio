@@ -71,9 +71,7 @@
     "vaul": "^1.1.2",
     "vite": "latest",
     "wouter": "^3.3.5",
-    "zod": "latest"
-  },
-  "dependencies": {
+    "zod": "latest",
     "@emailjs/browser": "^4.4.1"
   }
 }
