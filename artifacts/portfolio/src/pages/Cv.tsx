@@ -165,6 +165,28 @@ export default function Cv() {
                 </ul>
               </div>
 
+              <div className="w-full px-8"><div className="w-full border-t border-gray-600/50 border-dashed"></div></div>
+
+              {/* QR CODE - PORTFOLIO */}
+              <div className="px-8 pb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-1.5 h-5 bg-accent rounded-full"></div>
+                  <h3 className="font-bold tracking-widest text-sm uppercase text-white">Portfolio en ligne</h3>
+                </div>
+                <div className="flex flex-col items-center gap-3">
+                  <div className="bg-white p-2 rounded-lg shadow-md">
+                    <img
+                      src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://cisse-ibrahim-matche-portfolio-lime-rho.vercel.app&bgcolor=ffffff&color=1e3a8a&margin=2"
+                      alt="QR Code Portfolio"
+                      className="w-[100px] h-[100px] print:w-[80px] print:h-[80px]"
+                    />
+                  </div>
+                  <p className="text-[10px] text-gray-400 text-center leading-snug">
+                    Scannez pour accéder<br />à mon portfolio
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
 

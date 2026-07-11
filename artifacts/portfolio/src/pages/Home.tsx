@@ -402,7 +402,7 @@ export default function Home() {
 
               <div className="flex flex-wrap gap-3">
                 {[
-                  { dot: "bg-accent", text: "Né le 04 Mars 1999" },
+                  { dot: "bg-accent", text: "Né le 10 Septembre 2000" },
                   { dot: "bg-primary", text: "Abidjan, Côte d'Ivoire" },
                   { dot: "bg-emerald-500", text: "Permis B" },
                 ].map((item) => (
