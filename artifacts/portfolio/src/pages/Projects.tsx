@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useListProjects } from "@workspace/api-client-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -29,15 +29,10 @@ function loadCustomTypes(): string[] {
 const statuses = ["en_cours", "terminé", "planifié"];
 const statusLabels: Record<string, string> = { en_cours: "En cours", terminé: "Terminé", planifié: "Planifié" };
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
-};
-
 const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.96 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
-  exit: { opacity: 0, scale: 0.9, transition: { duration: 0.3 } },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
+  exit: { opacity: 0, transition: { duration: 0.2 } },
 };
 
 type AnyProject = {
@@ -331,17 +326,10 @@ export default function Projects() {
             )}
           </motion.div>
         ) : (
-          <LayoutGroup>
-            <motion.div
-              key={filter}
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
-              <AnimatePresence mode="popLayout">
-                {filteredProjects.map((project) => (
-                  <motion.div key={project.id} layout variants={cardVariants} exit="exit" className="relative group">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <AnimatePresence mode="wait">
+                {filteredProjects.map((project, i) => (
+                  <motion.div key={project.id} variants={cardVariants} initial="hidden" animate="visible" exit="exit" transition={{ delay: Math.min(i * 0.05, 0.3) }} className="relative group">
                     <motion.div
                       whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(30,64,175,0.15)" }}
                       transition={{ duration: 0.3 }}
@@ -355,9 +343,7 @@ export default function Projects() {
                         ) : (
                           <div className="w-full h-full flex items-center justify-center bg-background relative overflow-hidden">
                             <div className="absolute inset-0 bg-blueprint opacity-10" />
-                            <motion.div animate={{ rotate: [0, 5, -5, 0] }} transition={{ duration: 4, repeat: Infinity }}>
-                              <Building className="w-16 h-16 text-primary/30" />
-                            </motion.div>
+                            <Building className="w-16 h-16 text-primary/30" />
                           </div>
                         )}
                         {/* Hover overlay */}
@@ -425,8 +411,7 @@ export default function Projects() {
                   </motion.div>
                 ))}
               </AnimatePresence>
-            </motion.div>
-          </LayoutGroup>
+          </div>
         )}
       </div>
 
