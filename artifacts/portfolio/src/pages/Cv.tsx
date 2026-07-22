@@ -265,7 +265,8 @@ export default function Cv() {
                     </div>
                     <div className="text-primary text-xs font-bold mb-2 italic">HOUSE CARE INTERNATIONAL</div>
                     <p className="text-gray-500 text-xs leading-relaxed print:leading-normal">
-                     Suivi et contrôle des travaux de construction de trois villas duplex.. Survie et contrôle de la fondation de trois (3) villa duplex et un immeuble R+3 à SONGON.
+                     Suivi et contrôle des travaux de construction de trois villas duplex.
+                     Survie et contrôle de la fondation de trois (3) villa duplex et un immeuble R+3 à SONGON.
                     </p>
                   </div>
                   
