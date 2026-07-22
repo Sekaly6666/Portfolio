@@ -242,6 +242,7 @@ export default function Cv() {
                 </div>
                 
                 <div className="space-y-8 print:space-y-3">
+
                   {/* Exp 1 */}
                   <div className="relative pl-24 md:pl-32 pr-12">
                     <div className="absolute left-[37px] md:left-[53px] top-1.5 print:top-1 w-2 h-2 rounded-full bg-accent ring-4 print:ring-2 ring-white"></div>
@@ -264,7 +265,7 @@ export default function Cv() {
                     </div>
                     <div className="text-primary text-xs font-bold mb-2 italic">HOUSE CARE INTERNATIONAL</div>
                     <p className="text-gray-500 text-xs leading-relaxed print:leading-normal">
-                      Suivi et contrôle des travaux sur le chantier. Jeune qualifié & diplômée. Survie et contrôle de la fondation de trois (3) villa duplex et un immeuble R+3 à SONGON.
+                     Suivi et contrôle des travaux de construction de trois villas duplex.. Survie et contrôle de la fondation de trois (3) villa duplex et un immeuble R+3 à SONGON.
                     </p>
                   </div>
                   
@@ -298,7 +299,7 @@ export default function Cv() {
                     <div className="absolute left-[37px] md:left-[53px] top-1.5 print:top-1 w-2 h-2 rounded-full bg-accent ring-4 print:ring-2 ring-white"></div>
                     <div className="flex justify-between items-start mb-0.5">
                       <h4 className="font-bold text-gray-800 uppercase text-sm">Brevet de Technicien Supérieur (BTS)</h4>
-                      <span className="font-bold text-gray-800 text-xs shrink-0">2021 - 2022</span>
+                      <span className="font-bold text-gray-800 text-xs shrink-0">2020 - 2022</span>
                     </div>
                     <div className="text-primary text-xs font-bold mb-1 italic">Groupe Loko</div>
                   </div>

@@ -122,7 +122,7 @@ const softSkills = ["Travail en équipe", "Ouverture d'esprit", "Travail sous pr
 
 const experiences = [
   {
-    period: "2022 — Présent",
+    period: "2023 — Présent",
     role: "Métreur",
     company: "YAPGI CONSTRUCTION",
     description: "En charge du métré, de la quantification et de l'analyse des coûts des projets de construction. Rédaction des devis quantitatifs et estimatifs (DQE).",
@@ -130,19 +130,21 @@ const experiences = [
     highlight: true,
     achievements: ["Estimation de plus de 15 projets", "Réduction des coûts de 8%"],
   },
+
   {
-    period: "2020 — 2022",
+    period: "2022",
     role: "Technicien Supérieur",
     company: "HOUSE CARE INTERNATIONAL",
-    description: "Suivi de chantier, contrôle qualité et contrôle des travaux sur plusieurs sites stratégiques.",
+    description: "Suivi et contrôle des travaux de construction de trois villas duplex.",
     tags: ["Suivi chantier", "Contrôle qualité", "Inspection"],
     highlight: false,
     achievements: ["Fondation 3 villas duplex", "Immeuble R+3 à Songon"],
   },
+
 ];
 
 const certifications = [
-  { title: "BTS Génie Civil", subtitle: "Option Bâtiment", year: "2021", icon: Award },
+  { title: "BTS Génie Civil", subtitle: "Option Bâtiment", year: "2020-2022", icon: Award },
   { title: "Attestation", subtitle: "Stratégie Marketing", year: "2023", icon: Star },
 ];
 
